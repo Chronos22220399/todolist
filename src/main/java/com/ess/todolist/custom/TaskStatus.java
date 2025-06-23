@@ -1,17 +1,19 @@
 package com.ess.todolist.custom;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-@Schema(description = "任务状态枚举，表示待办事项的当前状态")
+@ApiModel(description = "任务状态枚举，表示待办事项的当前状态")
 public enum TaskStatus {
-  @Schema(description = "任务已完成", example = "Completed")
+
+  @ApiModelProperty(value = "任务已完成", example = "Completed")
   COMPLETED("Completed"),
 
-  @Schema(description = "任务未完成", example = "Not Completed")
+  @ApiModelProperty(value = "任务未完成", example = "Not Completed")
   NOT_COMPLETED("Not Completed"),
 
-  @Schema(description = "任务已归档", example = "Archived")
+  @ApiModelProperty(value = "任务已归档", example = "Archived")
   ARCHIVED("Archived");
 
   @EnumValue

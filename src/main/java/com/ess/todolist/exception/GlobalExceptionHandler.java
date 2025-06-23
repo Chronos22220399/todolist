@@ -10,16 +10,21 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import java.util.Optional;
 
+@Api(tags = "全局异常处理器")
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-  @Operation(summary = "处理业务异常", description = "捕获并处理系统中的业务异常，返回统一的错误响应")
-  @ApiResponse(responseCode = "422", description = "业务异常导致的请求无法处理")
+  @ApiOperation(value = "处理业务异常", notes = "捕获并处理系统中的业务异常，返回统一的错误响应")
+  @ApiResponses({
+      @ApiResponse(code = 422, message = "业务异常导致的请求无法处理")
+  })
   @ExceptionHandler(BusinessException.class)
   public ResponseEntity<ApiResult<?>> handleBusinessException(BusinessException ex) {
     ApiResult<?> apiResult = new ApiResult<>();
@@ -35,8 +40,10 @@ public class GlobalExceptionHandler {
         .body(apiResult);
   }
 
-  @Operation(summary = "处理验证异常", description = "捕获并处理参数验证失败的异常，返回统一的错误响应")
-  @ApiResponse(responseCode = "400", description = "请求参数验证失败")
+  @ApiOperation(value = "处理验证异常", notes = "捕获并处理参数验证失败的异常，返回统一的错误响应")
+  @ApiResponses({
+      @ApiResponse(code = 400, message = "请求参数验证失败")
+  })
   @ExceptionHandler(MethodArgumentNotValidException.class)
   public ResponseEntity<ApiResult<?>> handleValidationException(MethodArgumentNotValidException ex) {
     ApiResult<?> apiResult = new ApiResult<>();
@@ -52,8 +59,10 @@ public class GlobalExceptionHandler {
         .body(apiResult);
   }
 
-  @Operation(summary = "处理其他未捕获异常", description = "捕获并处理系统中未明确处理的异常，返回统一的错误响应")
-  @ApiResponse(responseCode = "500", description = "服务器内部错误")
+  @ApiOperation(value = "处理其他未捕获异常", notes = "捕获并处理系统中未明确处理的异常，返回统一的错误响应")
+  @ApiResponses({
+      @ApiResponse(code = 500, message = "服务器内部错误")
+  })
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ApiResult<?>> handleOtherExceptions(Exception ex) {
     ApiResult<?> apiResult = new ApiResult<>();

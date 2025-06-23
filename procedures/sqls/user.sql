@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS user (
-  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   username VARCHAR(30) NOT NULL UNIQUE,
   hashed_password VARCHAR(128) NOT NULL, -- 根据常见哈希算法调整长度
   email VARCHAR(50) NOT NULL UNIQUE,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS user (
   is_deleted TINYINT(1) DEFAULT 0 -- 设置默认值
 );
 
-INSERT INTO users (username, hashed_password, email, role) VALUES
+INSERT IGNORE INTO user (username, hashed_password, email, role) VALUES
 ('john_doe', 'hashed_password_123', 'john.doe@example.com', 'Admin'),
 ('jane_smith', 'hashed_password_456', 'jane.smith@example.com', 'User'),
 ('alice_jones', 'hashed_password_789', 'alice.jones@example.com', 'Moderator');

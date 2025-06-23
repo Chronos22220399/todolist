@@ -1,14 +1,16 @@
 package com.ess.todolist.custom;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-@Schema(description = "分类代码枚举，表示待办事项的分类类型")
+@ApiModel(description = "分类代码枚举，表示待办事项的分类类型")
 public enum CategoryCode {
-  @Schema(description = "通用分类", example = "General")
+
+  @ApiModelProperty(value = "通用分类", example = "General")
   GENERAL("General"),
 
-  @Schema(description = "艾宾浩斯记忆分类", example = "Ebbinghaus")
+  @ApiModelProperty(value = "艾宾浩斯记忆分类", example = "Ebbinghaus")
   EBBINGHAUS("Ebbinghaus");
 
   @EnumValue

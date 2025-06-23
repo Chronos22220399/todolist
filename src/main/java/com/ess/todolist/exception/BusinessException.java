@@ -1,12 +1,13 @@
 package com.ess.todolist.exception;
 
 import com.ess.todolist.custom.Error;
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-@Schema(description = "业务异常类，用于表示系统中的业务错误")
+@ApiModel(description = "业务异常类，用于表示系统中的业务错误")
 public class BusinessException extends RuntimeException {
 
-  @Schema(description = "业务错误码", example = "NOT_FOUND")
+  @ApiModelProperty(value = "业务错误码", example = "NOT_FOUND")
   private final String errorCode;
 
   public BusinessException(String errorCode, String message) {

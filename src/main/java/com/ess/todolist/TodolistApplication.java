@@ -5,12 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.mybatis.spring.annotation.MapperScan;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@OpenAPIDefinition(info = @Info(title = "待办事项API", version = "1.0.0", description = "ESS ToDoList后端接口文档"))
 @SpringBootApplication
 @MapperScan("com.ess.todolist.mapper")
+@EnableSwagger2
 public class TodolistApplication {
 
 	public static void main(String[] args) {

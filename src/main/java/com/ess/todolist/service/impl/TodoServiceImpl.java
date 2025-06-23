@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import io.swagger.v3.oas.annotations.Operation;
+
+import io.swagger.annotations.ApiOperation;
 
 @Service
 @Transactional
@@ -23,7 +24,7 @@ public class TodoServiceImpl implements TodoService {
   private TodoMapper todoMapper;
 
   @Override
-  @Operation(summary = "创建待办事项", description = "根据提供的待办事项数据创建一个新的待办事项，并返回其详细信息")
+  @ApiOperation(value = "创建待办事项", notes = "根据提供的待办事项数据创建一个新的待办事项，并返回其详细信息")
   public TodoVO createTodo(TodoCreateDTO dto) {
     Todo todo = new Todo();
     BeanUtils.copyProperties(dto, todo);
