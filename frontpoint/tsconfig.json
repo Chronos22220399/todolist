@@ -1,0 +1,19 @@
+{
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "types": ["vite/client", "vue/types/vue"],
+    "vueCompilerOptions": {
+      "target": 3.3,
+      "experimentalTemplateCompiler": true
+    }
+  }
+}

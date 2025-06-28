@@ -1,0 +1,31 @@
+{
+	"name": "frontpoint",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc -b && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@vitejs/plugin-vue": "^5.2.3",
+		"@volar/vue-language-server": "^1.6.5",
+		"@vue/compiler-sfc": "^3.5.17",
+		"@vue/language-server": "^2.2.10",
+		"@vue/tsconfig": "^0.7.0",
+		"@vue/typescript-plugin": "^2.2.10",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5",
+		"vue": "^3.5.17",
+		"vue-tsc": "^2.2.8"
+	},
+	"dependencies": {
+		"axios": "^1.10.0",
+		"date-fns": "^4.1.0",
+		"element-plus": "^2.6.3",
+		"pinia": "^3.0.3",
+		"vue-router": "^4.5.1"
+	}
+}
